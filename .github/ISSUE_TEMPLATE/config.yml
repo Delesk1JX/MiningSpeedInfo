@@ -1,8 +1,4 @@
+# Bug reports and feature requests are welcome. Anything about the released versions, the download
+# links or the translations is better asked on Modrinth or CurseForge, the links are in the repository
+# description.
 blank_issues_enabled: true
-contact_links:
-  - name: Modrinth page
-    url: https://modrinth.com/mod/mining-speed-info
-    about: Questions about the released versions and the download links.
-  - name: CurseForge page
-    url: https://www.curseforge.com/minecraft/mc-mods/mining-speed-info
-    about: Questions about the released versions and the download links.
