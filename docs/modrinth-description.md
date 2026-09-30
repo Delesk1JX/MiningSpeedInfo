@@ -1,17 +1,18 @@
 # Mining Speed Info
 
-Adds the real mining speed of digging tools to their tooltip. Vanilla never shows this number, which is
-why it is so often mixed up with attack speed.
+Minecraft never shows how fast a tool actually digs, which is why that number is so often mixed up with
+attack speed. Mining Speed Info adds it to the tooltip, and adds it inside Quark's attribute tooltip when
+you use that mod.
 
-![icon](https://cdn.modrinth.com/data/PLACEHOLDER/PLACEHOLDER/icon.png)
+![banner](https://cdn.modrinth.com/data/LDNii7gT/VERSION/banner.png)
 
 ## What it does
 
 - Adds a line to the tooltip of pickaxes, axes, shovels and hoes with their mining speed, for example
   `Mining Speed: 8` for a diamond pickaxe.
 - Counts the bonus of the Efficiency enchantment the same way vanilla does while a block is being
-  broken, so an Efficiency V iron pickaxe reads `32` instead of `6`. The bonus can also be shown on
-  its own as `32 (+26)`.
+  broken, so an Efficiency V iron pickaxe reads `32` instead of `6`. The bonus can also be shown on its
+  own as `32 (+26)`.
 - Adds the value as its own row inside Quark's attribute tooltip, with the same up and down arrows
   Quark uses for its own values, so you can see at a glance whether the tool you are hovering is
   faster or slower than the one in your hand. Holding sneak shows the plain line instead, exactly like
@@ -69,8 +70,8 @@ Quark is the mod of [Violetmoon](https://quarkmc.dev) and is not part of this pr
 
 ## Building from source
 
-Two independent Gradle builds share one source folder, because the only thing that differs between the
-game versions is how the mining speed is read and which event classes exist.
+Every game version lives in its own branch: `main` for 1.20.1 with Forge, `1.21.1-neoforge` for 1.21.1
+with NeoForge.
 
 ```
 cd forge-1.20.1     && gradlew build     # build/libs/miningspeedinfo-1.0.0-forge.jar
