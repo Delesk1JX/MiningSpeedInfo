@@ -41,29 +41,6 @@ game versions and needs no library at all.
 The settings are stored in `config/miningspeedinfo.json` and can also be edited by hand. Values that
 make no sense are corrected when the file is read, so a typo can never break the mod.
 
-## Translations
-
-Every line of text is a normal language file, and the mod ships with 31 languages, including
-`ru_ru`, `uk_ua`, `de_de`, `fr_fr`, `es_es`, `it_it`, `nl_nl`, `pl_pl`, `cs_cz`, `sk_sk`, `pt_br`,
-`pt_pt`, `tr_tr`, `sv_se`, `da_dk`, `nb_no`, `fi_fi`, `hu_hu`, `ro_ro`, `bg_bg`, `el_gr`, `hr_hr`,
-`id_id`, `vi_vn`, `zh_cn`, `zh_tw`, `ja_jp` and `ko_kr`. Anything missing falls back to English.
-
-The name of the stat is a translation key as well, so the word order of each language is correct
-instead of being the English one pasted in.
-
-## Images
-
-The mod icon is a plain 128x128 PNG at the usual place, so it does not stand out in the mod list, and
-the three small images used inside the tooltip are ordinary resource pack textures under
-`assets/miningspeedinfo/textures/gui/`, which means a resource pack can recolour or replace them.
-
-## Requirements
-
-* Minecraft 1.20.1 with Forge 47.1 or newer, or Minecraft 1.21.1 with NeoForge 21.1 or newer.
-* Quark is optional. When it is installed its "Improved Tooltips" gets the extra row, and when the
-  setting is switched off the mod falls back to a plain tooltip line.
-* Nothing else. No library mod, no mixin framework, no Fabric API.
-
 Because the mod is declared client side, a dedicated server neither loads it nor needs it.
 
 ## Branches
@@ -91,21 +68,9 @@ build itself.
 handy for checking that a dedicated server really does ignore the mod. `tools/generate-assets.ps1`
 regenerates the icon and the three tooltip images.
 
-To publish, set `modrinth_project_id` and `curseforge_project_id` in `gradle.properties`, then:
-
-```
-export CURSEFORGE_API_TOKEN=...
-export MODRINTH_API_TOKEN=...
-gradlew build publishMods
-```
-
 ## Credits
 
-Inspired by [Mining Speed Tooltips](https://modrinth.com/mod/mining-speed-tooltips) by
-[Txni](https://modrinth.com/user/Txni). This is an independent, rewritten implementation without any
-of the code of that mod.
-
-Quark is the mod of [Violetmoon](https://quarkmc.dev) and is not part of this project.
+[Quark](https://www.curseforge.com/minecraft/mc-mods/quark) is the mod of [Vazkii](https://www.curseforge.com/members/vazkii/projects) and is not part of this project.
 
 ## License
 
