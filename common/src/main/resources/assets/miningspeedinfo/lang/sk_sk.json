@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Rýchlosť ťažby: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Rýchlosť ťažby",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Zapnuté: %s",
+  "miningspeedinfo.option.require_shift": "Len pri držaní Shift: %s",
+  "miningspeedinfo.option.color": "Farba: %s",
+  "miningspeedinfo.option.decimals": "Desetinné miesta: %s",
+  "miningspeedinfo.option.include_efficiency": "Zahrnúť bonus efektivity: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Zobraziť bonus osobitne: %s",
+  "miningspeedinfo.option.non_mining_tools": "Aj meče a nožnice: %s",
+  "miningspeedinfo.option.quark_tooltip": "Pridať do tooltipu Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Porovnať s nástrojom v ruke: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Otvoriť nastavenia"
+}

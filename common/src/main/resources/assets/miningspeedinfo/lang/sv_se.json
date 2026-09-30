@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Gruvningshastighet: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Gruvningshastighet",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Aktiverad: %s",
+  "miningspeedinfo.option.require_shift": "Endast när du smyger: %s",
+  "miningspeedinfo.option.color": "Färg: %s",
+  "miningspeedinfo.option.decimals": "Decimaler: %s",
+  "miningspeedinfo.option.include_efficiency": "Räkna med effektivitetsbonus: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Visa bonusen separat: %s",
+  "miningspeedinfo.option.non_mining_tools": "Även svärd och saxar: %s",
+  "miningspeedinfo.option.quark_tooltip": "Lägg till i Quarks verktygstips: %s",
+  "miningspeedinfo.option.quark_comparison": "Jämför med det som hålls i handen: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Öppna inställningar"
+}

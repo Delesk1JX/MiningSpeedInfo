@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Brzina kopanja: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Brzina kopanja",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Uključeno: %s",
+  "miningspeedinfo.option.require_shift": "Samo pri snižavanju: %s",
+  "miningspeedinfo.option.color": "Boja: %s",
+  "miningspeedinfo.option.decimals": "Decimalna mjesta: %s",
+  "miningspeedinfo.option.include_efficiency": "Uključi bonus učinkovitosti: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Prikaži bonus zasebno: %s",
+  "miningspeedinfo.option.non_mining_tools": "I mačevi i škare: %s",
+  "miningspeedinfo.option.quark_tooltip": "Dodaj u Quarkov opis alata: %s",
+  "miningspeedinfo.option.quark_comparison": "Usporedi s alatom u ruci: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Otvori postavke"
+}

@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+issueTrackerURL = "https://github.com/${mod_github}/${mod_id}/issues"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}+${minecraft_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = "${mod_description}"
+logoFile = "icon.png"
+displayURL = "https://modrinth.com/mod/${modrinth_slug}"
+
+# Client side only: a dedicated server never loads this mod, which keeps it out of the server list
+# and avoids the extra library it would otherwise drag in.
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "CLIENT"
+
+# Optional. Quark's attribute tooltip gets an extra entry when it is installed, and nothing happens
+# when it is not.
+[[dependencies.${mod_id}]]
+modId = "quark"
+type = "optional"
+versionRange = "${quark_version_range}"
+ordering = "AFTER"
+side = "CLIENT"

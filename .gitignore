@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+
+# Development runs, everything a client or a server creates while testing
+run/
+run-data/
+run-server/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.eclipse/
+.settings/
+.classpath
+.project
+.vscode/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db

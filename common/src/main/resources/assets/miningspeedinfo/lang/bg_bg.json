@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Скорост на копаене: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Скорост на копаене",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Включено: %s",
+  "miningspeedinfo.option.require_shift": "Само при задържане на Shift: %s",
+  "miningspeedinfo.option.color": "Цвят: %s",
+  "miningspeedinfo.option.decimals": "Знаци след десетичния разделител: %s",
+  "miningspeedinfo.option.include_efficiency": "Включване на бонуса от ефективност: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Показване на бонуса отделно: %s",
+  "miningspeedinfo.option.non_mining_tools": "Също мечове и ножици: %s",
+  "miningspeedinfo.option.quark_tooltip": "Добавяне към подсказката на Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Сравняване с инструмента в ръката: %s",
+  "miningspeedinfo.value.auto": "Авто",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Отваряне на настройките"
+}

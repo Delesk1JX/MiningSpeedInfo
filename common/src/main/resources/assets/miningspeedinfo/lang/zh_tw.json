@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "挖掘速度：%s",
+  "miningspeedinfo.tooltip.mining_speed_name": "挖掘速度",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "已啟用：%s",
+  "miningspeedinfo.option.require_shift": "僅潛行時顯示：%s",
+  "miningspeedinfo.option.color": "顏色：%s",
+  "miningspeedinfo.option.decimals": "小數位數：%s",
+  "miningspeedinfo.option.include_efficiency": "計入效率加成：%s",
+  "miningspeedinfo.option.efficiency_breakdown": "單獨顯示加成：%s",
+  "miningspeedinfo.option.non_mining_tools": "也顯示劍和剪刀：%s",
+  "miningspeedinfo.option.quark_tooltip": "加入 Quark 提示：%s",
+  "miningspeedinfo.option.quark_comparison": "與手持工具比較：%s",
+  "miningspeedinfo.value.auto": "自動",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "開啟設定"
+}

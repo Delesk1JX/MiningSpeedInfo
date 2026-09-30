@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Rychlost těžby: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Rychlost těžby",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Zapnuto: %s",
+  "miningspeedinfo.option.require_shift": "Jen při držení Shift: %s",
+  "miningspeedinfo.option.color": "Barva: %s",
+  "miningspeedinfo.option.decimals": "Desetinná místa: %s",
+  "miningspeedinfo.option.include_efficiency": "Zahrnout bonus efektivity: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Zobrazit bonus zvlášť: %s",
+  "miningspeedinfo.option.non_mining_tools": "Také meče a nůžky: %s",
+  "miningspeedinfo.option.quark_tooltip": "Přidat do tooltipu Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Porovnat s nástrojem v ruce: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Otevřít nastavení"
+}

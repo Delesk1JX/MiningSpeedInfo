@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Gruvehastighet: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Gruvehastighet",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Aktivert: %s",
+  "miningspeedinfo.option.require_shift": "Bare mens du smuger: %s",
+  "miningspeedinfo.option.color": "Farge: %s",
+  "miningspeedinfo.option.decimals": "Desimaler: %s",
+  "miningspeedinfo.option.include_efficiency": "Regn med effektivitetsbonus: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Vis bonusen separat: %s",
+  "miningspeedinfo.option.non_mining_tools": "Også sverd og saks: %s",
+  "miningspeedinfo.option.quark_tooltip": "Legg til i Quarks verktøytips: %s",
+  "miningspeedinfo.option.quark_comparison": "Sammenlign med det som holdes: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Åpne innstillinger"
+}

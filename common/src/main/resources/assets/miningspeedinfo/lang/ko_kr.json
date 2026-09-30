@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "채굴 속도: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "채굴 속도",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "사용: %s",
+  "miningspeedinfo.option.require_shift": "웅크릴 때만: %s",
+  "miningspeedinfo.option.color": "색상: %s",
+  "miningspeedinfo.option.decimals": "소수 자릿수: %s",
+  "miningspeedinfo.option.include_efficiency": "효율 보정 포함: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "보정을 따로 표시: %s",
+  "miningspeedinfo.option.non_mining_tools": "검과 가위도 포함: %s",
+  "miningspeedinfo.option.quark_tooltip": "Quark 툴팁에 추가: %s",
+  "miningspeedinfo.option.quark_comparison": "손에 든 도구와 비교: %s",
+  "miningspeedinfo.value.auto": "자동",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "설정 열기"
+}

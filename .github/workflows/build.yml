@@ -1,0 +1,63 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+      - '1.21.1-neoforge'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Minecraft 1.20.1 (Forge)
+            directory: forge-1.20.1
+            java: '17'
+          - name: Minecraft 1.21.1 (NeoForge)
+            directory: neoforge-1.21.1
+            java: '21'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check whether this branch carries that version
+        id: version
+        run: |
+          if [ -d "${{ matrix.directory }}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-java@v4
+        if: steps.version.outputs.present == 'true'
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.version.outputs.present == 'true'
+
+      - name: Build
+        if: steps.version.outputs.present == 'true'
+        working-directory: ${{ matrix.directory }}
+        # "bash gradlew" instead of "./gradlew" so the build also works when the wrapper lost its
+        # executable bit, which happens when somebody commits it from Windows.
+        run: bash gradlew build --stacktrace
+
+      - name: Upload the mod
+        if: steps.version.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: |
+            ${{ matrix.directory }}/build/libs/miningspeedinfo-*.jar
+            !${{ matrix.directory }}/build/libs/*-sources.jar
+          if-no-files-found: error

@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Louhintanopeus: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Louhintanopeus",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Käytössä: %s",
+  "miningspeedinfo.option.require_shift": "Vain kun hiivät: %s",
+  "miningspeedinfo.option.color": "Väri: %s",
+  "miningspeedinfo.option.decimals": "Desimaalit: %s",
+  "miningspeedinfo.option.include_efficiency": "Laske tehokkuusbonukset mukaan: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Näytä bonus erikseen: %s",
+  "miningspeedinfo.option.non_mining_tools": "Myös miekat ja sakset: %s",
+  "miningspeedinfo.option.quark_tooltip": "Lisää Quarkin työkaluvihjeeseen: %s",
+  "miningspeedinfo.option.quark_comparison": "Vertaa kädessä olevaan työkaluun: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Avaa asetukset"
+}

@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Kecepatan penambangan: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Kecepatan penambangan",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Aktif: %s",
+  "miningspeedinfo.option.require_shift": "Hanya saat menyelinap: %s",
+  "miningspeedinfo.option.color": "Warna: %s",
+  "miningspeedinfo.option.decimals": "Desimal: %s",
+  "miningspeedinfo.option.include_efficiency": "Sertakan bonus efisiensi: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Tampilkan bonus terpisah: %s",
+  "miningspeedinfo.option.non_mining_tools": "Juga pedang dan gunting: %s",
+  "miningspeedinfo.option.quark_tooltip": "Tambahkan ke tooltip Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Bandingkan dengan alat di tangan: %s",
+  "miningspeedinfo.value.auto": "Otomatis",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Buka pengaturan"
+}
