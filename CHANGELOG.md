@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.0.1] - 2026-09-30
+
+### Fixed
+
+- The row that is added to Quark's attribute tooltip is a real tooltip component, and the loaders
+  refuse to draw a component that has no factory. Registering it fixes the crash that happened as soon
+  as a tool was hovered while Quark was installed.
+- The plain tooltip line now starts with a space, so it lines up with the values of Quark's panel
+  instead of sitting against the edge of the tooltip.
+
 ## [1.0.0] - 2026-09-30
 
 First release.

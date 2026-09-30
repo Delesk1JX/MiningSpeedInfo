@@ -74,8 +74,8 @@ Every game version lives in its own branch: `main` for 1.20.1 with Forge, `1.21.
 with NeoForge.
 
 ```
-cd forge-1.20.1     && gradlew build     # build/libs/miningspeedinfo-1.0.0-forge.jar
-cd neoforge-1.21.1  && gradlew build     # build/libs/miningspeedinfo-1.0.0-neoforge.jar
+cd forge-1.20.1     && gradlew build     # build/libs/miningspeedinfo-1.0.1-forge.jar
+cd neoforge-1.21.1  && gradlew build     # build/libs/miningspeedinfo-1.0.1-neoforge.jar
 ```
 
 ## License
