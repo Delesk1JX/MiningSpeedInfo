@@ -2,12 +2,14 @@ package dev.delesk1jx.miningspeedinfo.platform;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
+import dev.delesk1jx.miningspeedinfo.client.MiningSpeedTooltipComponent;
 import dev.delesk1jx.miningspeedinfo.client.QuarkIntegration;
 import dev.delesk1jx.miningspeedinfo.client.TooltipHandler;
 import dev.delesk1jx.miningspeedinfo.config.ConfigScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
@@ -41,6 +43,16 @@ public final class ClientEvents {
                     GLFW.GLFW_KEY_UNKNOWN,
                     "key.categories." + MiningSpeedInfo.MOD_ID);
             event.register(openConfigKey);
+        }
+
+        /**
+         * The row that is added to Quark's tooltip is a real tooltip component, and Forge refuses to
+         * draw one that has no factory, so the component has to be announced here. Without it the game
+         * throws "Unknown TooltipComponent" as soon as a tool is hovered while Quark is installed.
+         */
+        @SubscribeEvent
+        public static void onRegisterTooltipComponentFactories(RegisterClientTooltipComponentFactoriesEvent event) {
+            event.register(MiningSpeedTooltipComponent.class, component -> component);
         }
     }
 
