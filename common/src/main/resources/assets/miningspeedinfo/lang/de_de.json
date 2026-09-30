@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Abbaugeschwindigkeit: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Abbaugeschwindigkeit",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Aktiviert: %s",
+  "miningspeedinfo.option.require_shift": "Nur beim Schleichen: %s",
+  "miningspeedinfo.option.color": "Farbe: %s",
+  "miningspeedinfo.option.decimals": "Nachkommastellen: %s",
+  "miningspeedinfo.option.include_efficiency": "Effizienz-Bonus einbeziehen: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Bonus separat anzeigen: %s",
+  "miningspeedinfo.option.non_mining_tools": "Auch Schwerter und Scheren: %s",
+  "miningspeedinfo.option.quark_tooltip": "In Quarks Tooltip einfügen: %s",
+  "miningspeedinfo.option.quark_comparison": "Mit dem gehaltenen Werkzeug vergleichen: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Einstellungen öffnen"
+}

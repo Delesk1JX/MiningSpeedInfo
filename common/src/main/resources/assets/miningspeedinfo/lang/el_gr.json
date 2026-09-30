@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Ταχύτητα εξόρυξης: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Ταχύτητα εξόρυξης",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Ενεργοποιημένο: %s",
+  "miningspeedinfo.option.require_shift": "Μόνο όταν σκύβετε: %s",
+  "miningspeedinfo.option.color": "Χρώμα: %s",
+  "miningspeedinfo.option.decimals": "Δεκαδικά ψηφία: %s",
+  "miningspeedinfo.option.include_efficiency": "Συμπερίληψη μπόνους αποδοτικότητας: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Ξεχωριστή εμφάνιση μπόνους: %s",
+  "miningspeedinfo.option.non_mining_tools": "Και σπαθιά και ψαλίδια: %s",
+  "miningspeedinfo.option.quark_tooltip": "Προσθήκη στο tooltip του Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Σύγκριση με το εργαλείο στο χέρι: %s",
+  "miningspeedinfo.value.auto": "Αυτόματα",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Άνοιγμα ρυθμίσεων"
+}

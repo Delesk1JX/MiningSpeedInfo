@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Viteză de extragere: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Viteză de extragere",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Activat: %s",
+  "miningspeedinfo.option.require_shift": "Doar când te furi: %s",
+  "miningspeedinfo.option.color": "Culoare: %s",
+  "miningspeedinfo.option.decimals": "Zecimale: %s",
+  "miningspeedinfo.option.include_efficiency": "Include bonusul de eficiență: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Arată bonusul separat: %s",
+  "miningspeedinfo.option.non_mining_tools": "Și săbii și foarfeci: %s",
+  "miningspeedinfo.option.quark_tooltip": "Adaugă în tooltip-ul Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Compară cu unealta din mână: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Deschide setările"
+}

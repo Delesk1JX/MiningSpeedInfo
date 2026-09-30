@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Vitesse d'extraction : %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Vitesse d'extraction",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Activé : %s",
+  "miningspeedinfo.option.require_shift": "Uniquement en s'accroupissant : %s",
+  "miningspeedinfo.option.color": "Couleur : %s",
+  "miningspeedinfo.option.decimals": "Décimales : %s",
+  "miningspeedinfo.option.include_efficiency": "Inclure le bonus d'efficience : %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Afficher le bonus à part : %s",
+  "miningspeedinfo.option.non_mining_tools": "Aussi les épées et les ciseaux : %s",
+  "miningspeedinfo.option.quark_tooltip": "Ajouter à l'infobulle de Quark : %s",
+  "miningspeedinfo.option.quark_comparison": "Comparer avec l'outil en main : %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Ouvrir les paramètres"
+}

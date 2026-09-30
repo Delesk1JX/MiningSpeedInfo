@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Szybkość kopania: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Szybkość kopania",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Włączone: %s",
+  "miningspeedinfo.option.require_shift": "Tylko po przytrzymaniu Shift: %s",
+  "miningspeedinfo.option.color": "Kolor: %s",
+  "miningspeedinfo.option.decimals": "Miejsca dziesiętne: %s",
+  "miningspeedinfo.option.include_efficiency": "Uwzględnij premię za Efektywność: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Pokaż premię osobno: %s",
+  "miningspeedinfo.option.non_mining_tools": "Także miecze i nożyce: %s",
+  "miningspeedinfo.option.quark_tooltip": "Dodaj do podpowiedzi Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Porównaj z narzędziem w ręce: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Otwórz ustawienia"
+}

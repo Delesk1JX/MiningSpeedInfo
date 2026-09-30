@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Madencilik hızı: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Madencilik hızı",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Etkin: %s",
+  "miningspeedinfo.option.require_shift": "Yalnızca eğilirken: %s",
+  "miningspeedinfo.option.color": "Renk: %s",
+  "miningspeedinfo.option.decimals": "Ondalık basamak: %s",
+  "miningspeedinfo.option.include_efficiency": "Verimlilik bonusu dahil edilsin: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Bonus ayrı gösterilsin: %s",
+  "miningspeedinfo.option.non_mining_tools": "Kılıç ve makaslar dahil: %s",
+  "miningspeedinfo.option.quark_tooltip": "Quark ipucuna eklensin: %s",
+  "miningspeedinfo.option.quark_comparison": "Eldeki aletle karşılaştırılsın: %s",
+  "miningspeedinfo.value.auto": "Otomatik",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Ayarları aç"
+}

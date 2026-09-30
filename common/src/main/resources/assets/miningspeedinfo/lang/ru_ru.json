@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Скорость добычи: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Скорость добычи",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Включено: %s",
+  "miningspeedinfo.option.require_shift": "Только при нажатии Shift: %s",
+  "miningspeedinfo.option.color": "Цвет: %s",
+  "miningspeedinfo.option.decimals": "Знаков после запятой: %s",
+  "miningspeedinfo.option.include_efficiency": "Учитывать бонус эффективности: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Показывать бонус отдельно: %s",
+  "miningspeedinfo.option.non_mining_tools": "Также мечи и ножницы: %s",
+  "miningspeedinfo.option.quark_tooltip": "Добавлять в подсказку Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Сравнивать с предметом в руке: %s",
+  "miningspeedinfo.value.auto": "Авто",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Открыть настройки"
+}

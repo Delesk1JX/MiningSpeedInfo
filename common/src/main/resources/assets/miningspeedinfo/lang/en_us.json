@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "%s Mining Speed",
+  "miningspeedinfo.tooltip.mining_speed_name": "Mining Speed",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Enabled: %s",
+  "miningspeedinfo.option.require_shift": "Only while sneaking: %s",
+  "miningspeedinfo.option.color": "Colour: %s",
+  "miningspeedinfo.option.decimals": "Decimals: %s",
+  "miningspeedinfo.option.include_efficiency": "Count the Efficiency bonus: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Show the bonus on its own: %s",
+  "miningspeedinfo.option.non_mining_tools": "Also swords and shears: %s",
+  "miningspeedinfo.option.quark_tooltip": "Add it to Quark's tooltip: %s",
+  "miningspeedinfo.option.quark_comparison": "Compare with the held tool: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Open settings"
+}

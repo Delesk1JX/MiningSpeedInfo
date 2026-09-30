@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Mijnsnelheid: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Mijnsnelheid",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Ingeschakeld: %s",
+  "miningspeedinfo.option.require_shift": "Alleen tijdens het sneaken: %s",
+  "miningspeedinfo.option.color": "Kleur: %s",
+  "miningspeedinfo.option.decimals": "Decimale tekens: %s",
+  "miningspeedinfo.option.include_efficiency": "Efficiëntiebonus meetellen: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Bonus apart tonen: %s",
+  "miningspeedinfo.option.non_mining_tools": "Ook zwaarden en scharen: %s",
+  "miningspeedinfo.option.quark_tooltip": "Toevoegen aan de tooltip van Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Vergelijken met het gehouden gereedschap: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Instellingen openen"
+}

@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
+    plugins {
+        id 'me.modmuss50.mod-publish-plugin' version '2.2.1'
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+}
+
+rootProject.name = 'mining-speed-info-forge-1.20.1'

@@ -1,0 +1,147 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
+    id 'me.modmuss50.mod-publish-plugin' version '2.2.1'
+}
+
+// Everything that is not specific to this game version is kept in the repository root so that both
+// builds can never drift apart.
+def shared = new Properties()
+file("${rootDir}/../gradle.properties").withInputStream { shared.load(it) }
+
+ext {
+    mod_id = shared['mod_id']
+    mod_name = shared['mod_name']
+    mod_group_id = shared['mod_group_id']
+    mod_version = shared['mod_version']
+    mod_license = shared['mod_license']
+    mod_authors = shared['mod_authors']
+    mod_description = shared['mod_description']
+    mod_github = shared['mod_github']
+    modrinth_slug = shared['modrinth_slug']
+    modrinth_project_id = shared['modrinth_project_id']
+    curseforge_project_id = shared['curseforge_project_id']
+    is_stable = shared['is_stable']
+}
+
+version = mod_version
+group = mod_group_id
+base {
+    archivesName = "${mod_id}-${minecraft_version}-${loader}"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    withSourcesJar()
+}
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+        }
+
+        client {
+            property 'forge.logging.console.level', 'info'
+        }
+
+        server {
+            property 'forge.logging.console.level', 'info'
+            args '--nogui'
+        }
+
+        // Used to check the shipped metadata, for example with "gradlew runData".
+        data {
+            workingDirectory project.file('run-data')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+}
+
+// The mod itself is version independent and lives in ../common, only the platform glue in
+// src/main/java changes between game versions.
+sourceSets {
+    main {
+        java.srcDir "${rootDir}/../common/src/main/java"
+        resources.srcDir "${rootDir}/../common/src/main/resources"
+    }
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def replaceProperties = [
+            mod_id                        : mod_id,
+            mod_name                      : mod_name,
+            mod_license                   : mod_license,
+            mod_version                   : mod_version,
+            mod_authors                   : mod_authors,
+            mod_description               : mod_description,
+            mod_github                    : mod_github,
+            modrinth_slug                 : modrinth_slug,
+            minecraft_version             : minecraft_version,
+            minecraft_version_range       : minecraft_version_range,
+            loader_version_range          : loader_version_range,
+            quark_version_range           : quark_version_range,
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    // CurseForge and Modrinth want "{mod id}-{version}-{loader}.jar".
+    archiveFileName = "${mod_id}-${mod_version}-${loader}.jar"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+
+// ---------------------------------------------------------------- publishing --
+// Tokens come from the environment so that nothing secret ends up in the repository:
+//
+//   CURSEFORGE_API_TOKEN   -> https://www.curseforge.com/account/api-tokens
+//   MODRINTH_API_TOKEN     -> https://modrinth.com/settings/pats
+//   CHANGELOG              -> optional release notes
+//
+// Then:  ./gradlew build publishMods
+publishMods {
+    changelog = System.getenv('CHANGELOG') ?: ''
+    type = is_stable == 'true' && !mod_version.contains('-') ? STABLE : BETA
+    file = tasks.jar.archiveFile
+    modLoaders.add(loader)
+
+    if (System.getenv('CURSEFORGE_API_TOKEN') && project.curseforge_project_id) {
+        curseforge {
+            projectId = project.curseforge_project_id
+            accessToken = System.getenv('CURSEFORGE_API_TOKEN')
+            client = true
+            server = false
+            minecraftVersions.add(minecraft_version)
+        }
+    }
+
+    if (System.getenv('MODRINTH_API_TOKEN') && project.modrinth_project_id) {
+        modrinth {
+            projectId = project.modrinth_project_id
+            accessToken = System.getenv('MODRINTH_API_TOKEN')
+            minecraftVersions.add(minecraft_version)
+        }
+    }
+}

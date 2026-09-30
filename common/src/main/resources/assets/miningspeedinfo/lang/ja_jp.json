@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "採掘速度：%s",
+  "miningspeedinfo.tooltip.mining_speed_name": "採掘速度",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "有効：%s",
+  "miningspeedinfo.option.require_shift": " sneak 中のみ：%s",
+  "miningspeedinfo.option.color": "色：%s",
+  "miningspeedinfo.option.decimals": "小数点以下の桁数：%s",
+  "miningspeedinfo.option.include_efficiency": "効率の補正を含める：%s",
+  "miningspeedinfo.option.efficiency_breakdown": "補正を別に表示：%s",
+  "miningspeedinfo.option.non_mining_tools": "剣やはさみも含める：%s",
+  "miningspeedinfo.option.quark_tooltip": "Quarkのツールチップに追加：%s",
+  "miningspeedinfo.option.quark_comparison": "手に持った道具と比較：%s",
+  "miningspeedinfo.value.auto": "自動",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "設定を開く"
+}

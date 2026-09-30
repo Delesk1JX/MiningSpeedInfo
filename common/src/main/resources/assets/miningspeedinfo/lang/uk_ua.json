@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Швидкість видобування: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Швидкість видобування",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Увімкнено: %s",
+  "miningspeedinfo.option.require_shift": "Тільки з Shift: %s",
+  "miningspeedinfo.option.color": "Колір: %s",
+  "miningspeedinfo.option.decimals": "Знаків після коми: %s",
+  "miningspeedinfo.option.include_efficiency": "Враховувати бонус ефективності: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Показувати бонус окремо: %s",
+  "miningspeedinfo.option.non_mining_tools": "Також мечі та ножиці: %s",
+  "miningspeedinfo.option.quark_tooltip": "Додавати до підказки Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "Порівнювати з предметом у руці: %s",
+  "miningspeedinfo.value.auto": "Авто",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Відкрити налаштування"
+}

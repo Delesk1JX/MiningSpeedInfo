@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Bányászati sebesség: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Bányászati sebesség",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Engedélyezve: %s",
+  "miningspeedinfo.option.require_shift": "Csak guggolás közben: %s",
+  "miningspeedinfo.option.color": "Szín: %s",
+  "miningspeedinfo.option.decimals": "Tizedeshelyek: %s",
+  "miningspeedinfo.option.include_efficiency": "Hatékonyság bónuszának számítása: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Bónusz külön megjelenítése: %s",
+  "miningspeedinfo.option.non_mining_tools": "Kardok és ollók is: %s",
+  "miningspeedinfo.option.quark_tooltip": "Hozzáadás a Quark tipphez: %s",
+  "miningspeedinfo.option.quark_comparison": "Összevetés a kézben tartott szerszámmal: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Beállítások megnyitása"
+}

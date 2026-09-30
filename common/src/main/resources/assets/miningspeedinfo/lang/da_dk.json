@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Udhastningshastighed: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Udhastningshastighed",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Aktiveret: %s",
+  "miningspeedinfo.option.require_shift": "Kun mens du smugler: %s",
+  "miningspeedinfo.option.color": "Farve: %s",
+  "miningspeedinfo.option.decimals": "Decimaler: %s",
+  "miningspeedinfo.option.include_efficiency": "Medregn effektivitetsbonus: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Vis bonusen separat: %s",
+  "miningspeedinfo.option.non_mining_tools": "Også sværd og saks: %s",
+  "miningspeedinfo.option.quark_tooltip": "Tilføj til Quarks værktøjstip: %s",
+  "miningspeedinfo.option.quark_comparison": "Sammenlign med det der holdes: %s",
+  "miningspeedinfo.value.auto": "Auto",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Åbn indstillinger"
+}

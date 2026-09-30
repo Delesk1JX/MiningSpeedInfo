@@ -1,0 +1,18 @@
+{
+  "miningspeedinfo.tooltip.mining_speed": "Tốc độ đào: %s",
+  "miningspeedinfo.tooltip.mining_speed_name": "Tốc độ đào",
+  "miningspeedinfo.tooltip.bonus": "(+%s)",
+  "miningspeedinfo.config.title": "Mining Speed Info",
+  "miningspeedinfo.option.enabled": "Đã bật: %s",
+  "miningspeedinfo.option.require_shift": "Chỉ khi đang lén: %s",
+  "miningspeedinfo.option.color": "Màu: %s",
+  "miningspeedinfo.option.decimals": "Số chữ số thập phân: %s",
+  "miningspeedinfo.option.include_efficiency": "Tính cả thưởng Hiệu suất: %s",
+  "miningspeedinfo.option.efficiency_breakdown": "Hiện thưởng riêng: %s",
+  "miningspeedinfo.option.non_mining_tools": "Cả kiếm và kéo: %s",
+  "miningspeedinfo.option.quark_tooltip": "Thêm vào tooltip của Quark: %s",
+  "miningspeedinfo.option.quark_comparison": "So sánh với công cụ đang cầm: %s",
+  "miningspeedinfo.value.auto": "Tự động",
+  "key.categories.miningspeedinfo": "Mining Speed Info",
+  "key.miningspeedinfo.open_config": "Mở cài đặt"
+}
