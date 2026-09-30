@@ -46,10 +46,21 @@ public final class TooltipHandler {
         lines.add(buildPlainLine(speed));
     }
 
+    /**
+     * The plain tooltip line.
+     *
+     * <p>It starts with a space on purpose: Quark draws the values of its own attribute panel a bit
+     * further to the right than a normal tooltip line, so without the space the line would sit against
+     * the edge of the tooltip while the values above it look indented. The space is a literal and not
+     * part of the translation, because a translation gets its arguments glued into the text and a
+     * leading space there would be lost.
+     */
     public static Component buildPlainLine(MiningSpeed speed) {
         MiningSpeedConfig config = MiningSpeedInfo.config;
         Component value = buildValue(speed, config.colorFormatting());
-        return Component.translatable("miningspeedinfo.tooltip.mining_speed", value).withStyle(config.colorFormatting());
+        return Component.literal(" ")
+                .append(Component.translatable("miningspeedinfo.tooltip.mining_speed", value))
+                .withStyle(config.colorFormatting());
     }
 
     /** Just the name of the stat, used by the row that is drawn inside Quark's tooltip. */

@@ -24,7 +24,7 @@ Everything the two sites ask for, ready to be copied in.
 ## Description
 
 * `modrinth-description.md` for Modrinth, paste the text as it is.
-* `curseforge-description.html` for CurseForge, paste it into the HTML editor.
+* `curseforge-description.md` for CurseForge, paste it into the description field.
 
 Only one thing has to be adjusted: the banner line at the top of the Modrinth text. Replace `VERSION`
 with the version id of the uploaded file, or simply drop the image and upload `docs/banner.png` with the
