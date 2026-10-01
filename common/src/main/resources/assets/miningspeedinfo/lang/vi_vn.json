@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Tốc độ đào: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Tốc độ đào",
+  "miningspeedinfo.tooltip.harvest_level": "Cấp đào: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Đã bật: %s",

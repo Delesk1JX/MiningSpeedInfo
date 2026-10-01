@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Louhintanopeus: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Louhintanopeus",
+  "miningspeedinfo.tooltip.harvest_level": "Louhintataso: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Käytössä: %s",

@@ -54,4 +54,14 @@ public final class VanillaMiningSpeedProvider implements MiningSpeedProvider {
         }
         return new MiningSpeed(base, bonus);
     }
+
+    @Override
+    public int getHarvestLevel(ItemStack stack) {
+        // 1.20.1 still keeps the number on the tier itself, so it can be read directly. That also
+        // covers tools of other mods as long as they build on a tier.
+        if (stack.getItem() instanceof TieredItem tiered) {
+            return tiered.getTier().getLevel();
+        }
+        return UNKNOWN_HARVEST_LEVEL;
+    }
 }

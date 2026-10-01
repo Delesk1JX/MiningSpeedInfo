@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Kecepatan penambangan: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Kecepatan penambangan",
+  "miningspeedinfo.tooltip.harvest_level": "Tingkat pertambangan: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Aktif: %s",

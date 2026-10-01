@@ -48,8 +48,8 @@ image button of the description editor, the site then writes the link itself.
 
 | Minecraft | Loader | File | Type |
 | --- | --- | --- | --- |
-| 1.20.1 | Forge 47.1 or newer | `miningspeedinfo-1.0.1-forge.jar` | Release |
-| 1.21.1 | NeoForge 21.1 or newer | `miningspeedinfo-1.0.1-neoforge.jar` | Release |
+| 1.20.1 | Forge 47.1 or newer | `miningspeedinfo-1.1.0-forge.jar` | Release |
+| 1.21.1 | NeoForge 21.1 or newer | `miningspeedinfo-1.1.0-neoforge.jar` | Release |
 
 Dependencies: nothing, neither library nor another mod. Optional: `Quark` from version 4.0, marked as
 optional on both sites.

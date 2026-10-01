@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Madencilik hızı: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Madencilik hızı",
+  "miningspeedinfo.tooltip.harvest_level": "Kazma seviyesi: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Etkin: %s",

@@ -23,6 +23,7 @@ ext {
     modrinth_project_id = shared['modrinth_project_id']
     curseforge_project_id = shared['curseforge_project_id']
     is_stable = shared['is_stable']
+    mixin_version = shared['mixin_version']
 }
 
 version = mod_version
@@ -48,6 +49,9 @@ minecraft {
 
         client {
             property 'forge.logging.console.level', 'info'
+            // A development run does not go through the mod metadata, so the mixin config that Forge
+            // normally reads from mods.toml has to be passed on the command line instead.
+            args '--mixin.config', "${mod_id}.mixins.json"
         }
 
         server {
@@ -64,12 +68,35 @@ minecraft {
 }
 
 repositories {
+    // Quark is only needed so the build can check the mixin target while compiling. It never ends up
+    // in the jar, and the mod works fine with Quark missing.
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    // Mixin is published by the Sponge people only, Forge ships its own build of it.
+    maven {
+        name = 'Sponge'
+        url = 'https://repo.spongepowered.org/repository/maven-public/'
+        content {
+            includeGroup 'org.spongepowered'
+        }
+    }
     mavenCentral()
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    compileOnly "maven.modrinth:quark:${quark_version}"
+    // Mixin ships with Forge at runtime, so only the annotations are needed while compiling.
+    compileOnly "org.spongepowered:mixin:${mixin_version}"
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 }
+
 
 // The mod itself is version independent and lives in ../common, only the platform glue in
 // src/main/java changes between game versions.
