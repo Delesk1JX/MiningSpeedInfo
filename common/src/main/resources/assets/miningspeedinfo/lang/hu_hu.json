@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Bányászati sebesség: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Bányászati sebesség",
+  "miningspeedinfo.tooltip.harvest_level": "Bányászati szint: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Engedélyezve: %s",

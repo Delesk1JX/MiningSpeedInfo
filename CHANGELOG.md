@@ -4,6 +4,24 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.1.0] - 2026-10-01
+
+### Added
+
+- Harvest level, so it is visible at a glance which blocks a tool can break: `0` mines stone, `1` iron
+  ore, `2` diamonds, `3` obsidian, `4` ancient debris. It is drawn as its own value and can be switched
+  off in the settings.
+
+### Changed
+
+- Inside Quark's attribute tooltip the value is now drawn like the ones Quark shows itself: an icon and
+  the number, on the same row behind attack damage and attack speed, instead of a row of its own with
+  the name of the stat in front of it.
+- The number is white by default, like the values Quark draws, and turns green only while the hovered
+  tool really is the faster one. The arrows Quark uses are unchanged.
+- The plain tooltip lines now sit in front of the item id and the NBT count that the game adds with
+  the advanced tooltips (F3+H), so they stay next to the other attributes.
+
 ## [1.0.1] - 2026-09-30
 
 ### Fixed

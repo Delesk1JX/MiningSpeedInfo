@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Abbaugeschwindigkeit: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Abbaugeschwindigkeit",
+  "miningspeedinfo.tooltip.harvest_level": "Abbaustufe: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Aktiviert: %s",

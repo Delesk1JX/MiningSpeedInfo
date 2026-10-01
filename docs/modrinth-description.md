@@ -10,6 +10,8 @@ you use that mod.
 
 - Adds a line to the tooltip of pickaxes, axes, shovels and hoes with their mining speed, for example
   `Mining Speed: 8` for a diamond pickaxe.
+- Adds the harvest level on its own line, so it is visible right away which blocks a tool
+  can break: `0` mines stone, `1` iron ore, `2` diamonds, `3` obsidian, `4` ancient debris.
 - Counts the bonus of the Efficiency enchantment the same way vanilla does while a block is being
   broken, so an Efficiency V iron pickaxe reads `32` instead of `6`. The bonus can also be shown on its
   own as `32 (+26)`.
@@ -30,10 +32,11 @@ game versions and needs no library at all.
 | --- | --- | --- |
 | Enabled | ON | Master switch |
 | Only while sneaking | OFF | Show the plain line only while holding sneak |
-| Colour | Dark Green | Colour of the added line |
+| Colour | White | Colour of the added line |
 | Decimals | Auto | `Auto` keeps `8` as `8` and `6.5` as `6.5` |
 | Count the Efficiency bonus | ON | Add the Efficiency bonus to the number |
 | Show the bonus on its own | OFF | Write it as `32 (+26)` |
+| Show the harvest level | ON | Also say which blocks the tool can break |
 | Also swords and shears | OFF | Report those items as well, with a speed of `1` |
 | Add it to Quark's tooltip | ON | Use Quark's attribute panel instead of a plain line |
 | Compare with the held tool | ON | Show Quark's up and down arrows |
@@ -74,8 +77,8 @@ Every game version lives in its own branch: `main` for 1.20.1 with Forge, `1.21.
 with NeoForge.
 
 ```
-cd forge-1.20.1     && gradlew build     # build/libs/miningspeedinfo-1.0.1-forge.jar
-cd neoforge-1.21.1  && gradlew build     # build/libs/miningspeedinfo-1.0.1-neoforge.jar
+cd forge-1.20.1     && gradlew build     # build/libs/miningspeedinfo-1.1.0-forge.jar
+cd neoforge-1.21.1  && gradlew build     # build/libs/miningspeedinfo-1.1.0-neoforge.jar
 ```
 
 ## License

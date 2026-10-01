@@ -22,7 +22,7 @@ public final class ConfigScreen extends Screen {
     private static final int PANEL_PADDING = 4;
 
     /** One row per option plus the "Done" button. */
-    private static final int ROWS = 10;
+    private static final int ROWS = 11;
 
     /** The numbers {@link MiningSpeedConfig#decimals} can be set to, {@code -1} meaning "auto". */
     private static final int[] DECIMALS = {-1, 0, 1, 2};
@@ -90,6 +90,10 @@ public final class ConfigScreen extends Screen {
         addToggle(buttonLeft, top + row++ * this.rowHeight, buttonWidth, "efficiency_breakdown",
                 config.showEfficiencyBreakdown && config.includeEfficiency, () -> {
                     config.showEfficiencyBreakdown = !config.showEfficiencyBreakdown;
+                });
+        addToggle(buttonLeft, top + row++ * this.rowHeight, buttonWidth, "harvest_level",
+                config.showHarvestLevel, () -> {
+                    config.showHarvestLevel = !config.showHarvestLevel;
                 });
         addToggle(buttonLeft, top + row++ * this.rowHeight, buttonWidth, "non_mining_tools",
                 config.showForNonMiningTools, () -> {

@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Brzina kopanja: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Brzina kopanja",
+  "miningspeedinfo.tooltip.harvest_level": "Razina kopanja: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Uključeno: %s",

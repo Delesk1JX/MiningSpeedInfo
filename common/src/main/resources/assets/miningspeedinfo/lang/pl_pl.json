@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Szybkość kopania: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Szybkość kopania",
+  "miningspeedinfo.tooltip.harvest_level": "Poziom kopania: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Włączone: %s",

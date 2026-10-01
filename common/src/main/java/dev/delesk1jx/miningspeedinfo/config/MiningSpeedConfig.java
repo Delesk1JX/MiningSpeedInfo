@@ -20,20 +20,21 @@ import java.util.List;
  */
 public final class MiningSpeedConfig {
 
-    /** Every colour a Minecraft chat colour supports, in the order the settings screen cycles them. */
+    /** Every colour a Minecraft chat colour supports, white first because that is the default. */
     public static final List<ChatFormatting> COLORS = List.of(
-            ChatFormatting.DARK_GREEN,
+            ChatFormatting.WHITE,
             ChatFormatting.GREEN,
+            ChatFormatting.DARK_GREEN,
             ChatFormatting.AQUA,
             ChatFormatting.DARK_AQUA,
             ChatFormatting.BLUE,
             ChatFormatting.DARK_BLUE,
+            ChatFormatting.LIGHT_PURPLE,
             ChatFormatting.DARK_PURPLE,
             ChatFormatting.RED,
             ChatFormatting.DARK_RED,
             ChatFormatting.YELLOW,
             ChatFormatting.GOLD,
-            ChatFormatting.WHITE,
             ChatFormatting.GRAY,
             ChatFormatting.DARK_GRAY,
             ChatFormatting.BLACK
@@ -45,8 +46,8 @@ public final class MiningSpeedConfig {
     /** Master switch. */
     public boolean enabled = true;
 
-    /** Chat colour of the added tooltip line. */
-    public String color = "dark_green";
+    /** Chat colour of the added tooltip line. White by default, the same as the values of Quark. */
+    public String color = "white";
 
     /** Number of decimals, {@code -1} keeps whole numbers whole and trims the rest. */
     public int decimals = -1;
@@ -56,6 +57,9 @@ public final class MiningSpeedConfig {
 
     /** Show the Efficiency bonus as a separate "(+N)" part. */
     public boolean showEfficiencyBreakdown = false;
+
+    /** Also show how good the tool is, which tells which blocks it can break. */
+    public boolean showHarvestLevel = true;
 
     /** Only add the tooltip line while the player holds sneak. */
     public boolean requireShift = false;
@@ -114,10 +118,10 @@ public final class MiningSpeedConfig {
     /** Repairs values that were hand edited into something the mod cannot use. */
     public void validate() {
         if (this.color == null) {
-            this.color = "dark_green";
+            this.color = "white";
         }
         if (colorFormatting() == null) {
-            this.color = "dark_green";
+            this.color = "white";
         }
         this.decimals = Math.max(-1, Math.min(2, this.decimals));
         if (!this.includeEfficiency) {

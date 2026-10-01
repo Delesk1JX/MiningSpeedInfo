@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Viteză de extragere: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Viteză de extragere",
+  "miningspeedinfo.tooltip.harvest_level": "Nivel de extragere: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Activat: %s",

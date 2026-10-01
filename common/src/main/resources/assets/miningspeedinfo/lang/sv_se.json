@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Gruvningshastighet: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Gruvningshastighet",
+  "miningspeedinfo.tooltip.harvest_level": "Gruvningsnivå: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Aktiverad: %s",

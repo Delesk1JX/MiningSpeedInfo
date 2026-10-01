@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Скорост на копаене: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Скорост на копаене",
+  "miningspeedinfo.tooltip.harvest_level": "Ниво на копаене: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Включено: %s",

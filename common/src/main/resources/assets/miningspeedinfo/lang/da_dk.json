@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Udhastningshastighed: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Udhastningshastighed",
+  "miningspeedinfo.tooltip.harvest_level": "Udhastningsniveau: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Aktiveret: %s",

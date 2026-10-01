@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Ταχύτητα εξόρυξης: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Ταχύτητα εξόρυξης",
+  "miningspeedinfo.tooltip.harvest_level": "Επίπεδο εξόρυξης: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Ενεργοποιημένο: %s",

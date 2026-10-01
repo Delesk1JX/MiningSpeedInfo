@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Rýchlosť ťažby: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Rýchlosť ťažby",
+  "miningspeedinfo.tooltip.harvest_level": "Úroveň ťažby: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Zapnuté: %s",

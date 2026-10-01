@@ -2,18 +2,13 @@ package dev.delesk1jx.miningspeedinfo.platform;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
-import dev.delesk1jx.miningspeedinfo.client.MiningSpeedTooltipComponent;
-import dev.delesk1jx.miningspeedinfo.client.QuarkIntegration;
 import dev.delesk1jx.miningspeedinfo.client.TooltipHandler;
 import dev.delesk1jx.miningspeedinfo.config.ConfigScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.lwjgl.glfw.GLFW;
@@ -32,12 +27,8 @@ public final class ClientEvents {
     /** Called from the mod constructor. */
     public static void register(IEventBus modBus, IEventBus gameBus) {
         modBus.addListener(ClientEvents::onRegisterKeyMappings);
-        modBus.addListener(ClientEvents::onRegisterTooltipComponentFactories);
         gameBus.addListener(ClientEvents::onClientTick);
         gameBus.addListener(ClientEvents::onItemTooltip);
-        // Runs last so Quark has already added its own attribute panel to the list, which is what lets
-        // the value be placed directly behind it.
-        gameBus.addListener(EventPriority.LOWEST, ClientEvents::onGatherTooltipComponents);
     }
 
     private static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
@@ -50,15 +41,6 @@ public final class ClientEvents {
         event.register(openConfigKey);
     }
 
-    /**
-     * The row that is added to Quark's tooltip is a real tooltip component, and NeoForge refuses to
-     * draw one that has no factory, so the component has to be announced here. Without it the game
-     * throws "Unknown TooltipComponent" as soon as a tool is hovered while Quark is installed.
-     */
-    private static void onRegisterTooltipComponentFactories(RegisterClientTooltipComponentFactoriesEvent event) {
-        event.register(MiningSpeedTooltipComponent.class, component -> component);
-    }
-
     private static void onClientTick(ClientTickEvent.Post event) {
         while (openConfigKey != null && openConfigKey.consumeClick()) {
             Minecraft.getInstance().setScreen(new ConfigScreen(Minecraft.getInstance().screen));
@@ -67,9 +49,5 @@ public final class ClientEvents {
 
     private static void onItemTooltip(ItemTooltipEvent event) {
         TooltipHandler.onItemTooltip(event.getToolTip(), event.getItemStack());
-    }
-
-    private static void onGatherTooltipComponents(RenderTooltipEvent.GatherComponents event) {
-        QuarkIntegration.onGatherTooltipComponents(event.getItemStack(), event.getTooltipElements());
     }
 }

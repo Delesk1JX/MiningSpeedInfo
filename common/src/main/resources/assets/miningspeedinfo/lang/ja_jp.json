@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "採掘速度：%s",
-  "miningspeedinfo.tooltip.mining_speed_name": "採掘速度",
+  "miningspeedinfo.tooltip.harvest_level": "採掘レベル：%s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "有効：%s",

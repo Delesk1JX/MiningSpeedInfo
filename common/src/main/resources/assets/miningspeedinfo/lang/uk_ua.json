@@ -1,6 +1,6 @@
 {
   "miningspeedinfo.tooltip.mining_speed": "Швидкість видобування: %s",
-  "miningspeedinfo.tooltip.mining_speed_name": "Швидкість видобування",
+  "miningspeedinfo.tooltip.harvest_level": "Рівень видобування: %s",
   "miningspeedinfo.tooltip.bonus": "(+%s)",
   "miningspeedinfo.config.title": "Mining Speed Info",
   "miningspeedinfo.option.enabled": "Увімкнено: %s",

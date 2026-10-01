@@ -4,8 +4,8 @@ import dev.delesk1jx.miningspeedinfo.MiningSpeed;
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
 import dev.delesk1jx.miningspeedinfo.config.MiningSpeedConfig;
 import dev.delesk1jx.miningspeedinfo.text.SpeedFormatter;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
@@ -13,8 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 /**
- * Builds the tooltip line and decides where the value belongs: as a plain line, or inside Quark's
- * attribute tooltip.
+ * Builds the plain tooltip lines and decides where they belong: as lines of their own, or inside
+ * Quark's attribute tooltip.
  */
 public final class TooltipHandler {
 
@@ -37,13 +37,17 @@ public final class TooltipHandler {
             return;
         }
 
-        // Quark is drawing the value inside its own attribute panel, so a second plain line would
-        // just repeat it. Sneaking still shows the plain line, same as with vanilla tooltips.
-        if (config.quarkTooltip && !shift && QuarkIntegration.isActive()) {
+        // Quark draws the value inside its own attribute panel, so a second line would only repeat it.
+        // Sneaking still shows the plain line, same as with the rest of the tooltip.
+        if (config.quarkTooltip && !shift && QuarkIntegration.drawsValue()) {
             return;
         }
 
-        lines.add(buildPlainLine(speed));
+        int level = config.showHarvestLevel ? MiningSpeedInfo.provider.getHarvestLevel(stack) : -1;
+        add(lines, stack, buildSpeedLine(speed, config));
+        if (level >= 0) {
+            add(lines, stack, buildLevelLine(level, config));
+        }
     }
 
     /**
@@ -55,21 +59,23 @@ public final class TooltipHandler {
      * part of the translation, because a translation gets its arguments glued into the text and a
      * leading space there would be lost.
      */
-    public static Component buildPlainLine(MiningSpeed speed) {
-        MiningSpeedConfig config = MiningSpeedInfo.config;
+    public static Component buildSpeedLine(MiningSpeed speed, MiningSpeedConfig config) {
         Component value = buildValue(speed, config.colorFormatting());
         return Component.literal(" ")
                 .append(Component.translatable("miningspeedinfo.tooltip.mining_speed", value))
                 .withStyle(config.colorFormatting());
     }
 
-    /** Just the name of the stat, used by the row that is drawn inside Quark's tooltip. */
-    public static MutableComponent miningSpeedName() {
-        return Component.translatable("miningspeedinfo.tooltip.mining_speed_name");
+    /** Same indent, saying which blocks the tool can break. */
+    public static Component buildLevelLine(int level, MiningSpeedConfig config) {
+        return Component.literal(" ")
+                .append(Component.translatable("miningspeedinfo.tooltip.harvest_level",
+                        SpeedFormatter.format(level, 0)))
+                .withStyle(config.colorFormatting());
     }
 
     /** "6", "6 (+26)", "6.5", ... depending on the settings. */
-    public static MutableComponent buildValue(MiningSpeed speed, ChatFormatting color) {
+    public static MutableComponent buildValue(MiningSpeed speed, net.minecraft.ChatFormatting color) {
         MiningSpeedConfig config = MiningSpeedInfo.config;
         float shown = config.includeEfficiency ? speed.total() : speed.base();
 
@@ -80,5 +86,24 @@ public final class TooltipHandler {
                             SpeedFormatter.format(speed.bonus(), config.decimals)));
         }
         return value.withStyle(color);
+    }
+
+    /**
+     * Puts a line in front of the item id and the NBT count that the game adds with the advanced
+     * tooltips, so the values stay next to the other attributes instead of ending up at the very
+     * bottom of a debug tooltip.
+     */
+    private static void add(List<Component> lines, ItemStack stack, Component line) {
+        lines.add(Math.max(0, debugLinesStart(lines, stack)), line);
+    }
+
+    private static int debugLinesStart(List<Component> lines, ItemStack stack) {
+        String id = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
+        for (int i = lines.size() - 1; i >= 0; i--) {
+            if (id.equals(lines.get(i).getString())) {
+                return i;
+            }
+        }
+        return lines.size();
     }
 }
