@@ -19,10 +19,10 @@ required libraries and no server side install.
 * Counts the bonus of the Efficiency enchantment the same way vanilla does while a block is being
   broken, so an Efficiency V iron pickaxe reads `32` instead of `6`. The bonus can also be shown on its
   own as `32 (+26)`.
-* Adds the value as its own row inside Quark's attribute tooltip, with the same up and down arrows
-  Quark uses for its own values, so you can see at a glance whether the tool you are hovering is
-  faster or slower than the one in your hand. Holding sneak shows the plain line instead, exactly like
-  the rest of the tooltip.
+- Adds both values to Quark's attribute tooltip, right behind the values Quark shows itself, each with
+  its own icon and with the same up and down arrows Quark uses, so you can see at a glance whether the
+  tool you are hovering is faster or slower than the one in your hand. Holding sneak shows the plain
+  lines with the full names instead, exactly like the rest of the tooltip.
 * Swords, shears and every other item that is not a digging tool are left alone, unless you ask for
   them in the settings.
 

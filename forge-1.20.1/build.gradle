@@ -23,7 +23,6 @@ ext {
     modrinth_project_id = shared['modrinth_project_id']
     curseforge_project_id = shared['curseforge_project_id']
     is_stable = shared['is_stable']
-    mixin_version = shared['mixin_version']
 }
 
 version = mod_version
@@ -65,35 +64,12 @@ minecraft {
 }
 
 repositories {
-    // Quark is only needed so the build can check the mixin target while compiling. It never ends up
-    // in the jar, and the mod works fine with Quark missing.
-    maven {
-        name = 'Modrinth'
-        url = 'https://api.modrinth.com/maven'
-        content {
-            includeGroup 'maven.modrinth'
-        }
-    }
-    // Mixin is published by the Sponge people only, Forge ships its own build of it.
-    maven {
-        name = 'Sponge'
-        url = 'https://repo.spongepowered.org/repository/maven-public/'
-        content {
-            includeGroup 'org.spongepowered'
-        }
-    }
     mavenCentral()
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    compileOnly "maven.modrinth:quark:${quark_version}"
-    // Mixin ships with Forge at runtime, so only the annotations are needed while compiling.
-    compileOnly "org.spongepowered:mixin:${mixin_version}"
-    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 }
-
 
 // The mod itself is version independent and lives in ../common, only the platform glue in
 // src/main/java changes between game versions.
@@ -137,6 +113,18 @@ tasks.withType(JavaCompile).configureEach {
     options.release = 17
 }
 
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+    options.addStringOption('Xdoclint:none', '-quiet')
+    failOnError = false
+}
+
+jar {
+    from('LICENSE') {
+        rename { "${it}_${mod_id}" }
+    }
+}
+
 // ---------------------------------------------------------------- publishing --
 // Tokens come from the environment so that nothing secret ends up in the repository:
 //
@@ -145,8 +133,10 @@ tasks.withType(JavaCompile).configureEach {
 //   CHANGELOG              -> optional release notes
 //
 // Then:  ./gradlew build publishMods
+def changelog = System.getenv('CHANGELOG') ?: ''
+
 publishMods {
-    changelog = System.getenv('CHANGELOG') ?: ''
+    changelog = changelog
     type = is_stable == 'true' && !mod_version.contains('-') ? STABLE : BETA
     file = tasks.jar.archiveFile
     modLoaders.add(loader)

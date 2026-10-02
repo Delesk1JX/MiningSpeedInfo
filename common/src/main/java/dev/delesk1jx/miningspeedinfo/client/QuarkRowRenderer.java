@@ -67,6 +67,9 @@ public final class QuarkRowRenderer {
      */
     private static boolean active;
 
+    /** Counts the ticks that passed without a single value being drawn. */
+    private static int ticks = -1;
+
     private QuarkRowRenderer() {
     }
 
@@ -76,6 +79,26 @@ public final class QuarkRowRenderer {
 
     public static boolean isActive() {
         return active;
+    }
+
+    /**
+     * Watches from the client tick whether the values ever reach Quark's tooltip, so that a mixin that
+     * quietly does nothing is said out loud instead of leaving the player with plain lines and no idea
+     * why.
+     */
+    public static void watchdog() {
+        if (active || !QuarkIntegration.isActive()) {
+            return;
+        }
+        if (ticks < 0) {
+            ticks = 0;
+            return;
+        }
+        if (++ticks == 200) {
+            MiningSpeedInfo.LOGGER.warn("Quark draws its attribute panel, but the mining speed never reached "
+                    + "it. Something in Quark changed, so only the plain tooltip lines are shown. "
+                    + "The latest log is in .minecraft/logs/latest.log.");
+        }
     }
 
     /** How much room the values need, so that Quark can make the tooltip wide enough. */
@@ -110,6 +133,10 @@ public final class QuarkRowRenderer {
         List<Value> values = values(stack);
         if (values.isEmpty()) {
             return;
+        }
+        if (!active) {
+            MiningSpeedInfo.LOGGER.info("Mining speed values are now drawn inside Quark's attribute panel");
+            ticks = -1;
         }
         active = true;
 

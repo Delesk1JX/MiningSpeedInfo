@@ -1,7 +1,6 @@
 package dev.delesk1jx.miningspeedinfo.platform;
 
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
-import dev.delesk1jx.miningspeedinfo.MixinRegistration;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -22,9 +21,7 @@ public final class ModMain {
             return;
         }
 
-        // Puts the values inside Quark's attribute tooltip, the mixin steps aside without Quark.
-        MixinRegistration.register(MiningSpeedInfo.MOD_ID + ".mixins.json");
-
+        // The tooltip values are added to Quark's panel, everything else is a plain tooltip line.
         MiningSpeedInfo.bootstrap(FMLPaths.CONFIGDIR.get(), new VanillaMiningSpeedProvider());
     }
 }
