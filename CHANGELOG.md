@@ -29,6 +29,8 @@ All notable changes to this project are documented here. The format follows
   Quark's attribute panel, which needs nothing but the public loader API: no mixin, no library, and
   nothing that has to be kept in step with Quark's own code. When Quark is missing or changes the
   panel, the mod falls back to the plain tooltip lines and says so in the log.
+- The two icons in Quark's panel were drawn on top of each other, because the position was measured
+  from a width that already included them.
 - NeoForge stopped the mod from loading because a class it handed to Mixin lived in the package the
   mixin config owns.
 
