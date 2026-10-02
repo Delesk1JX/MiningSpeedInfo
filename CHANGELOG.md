@@ -28,6 +28,11 @@ All notable changes to this project are documented here. The format follows
 - The mixin config is announced to Mixin while the mod is loading. Forge reads it from nowhere in
   1.20.1, so the values inside Quark's tooltip never showed up and the plain lines were drawn all the
   time instead.
+- NeoForge refuses to load any class from the package a mixin config owns, which made the mod stop
+  loading at all on 1.21.1.
+- The plain tooltip lines now use the same comparison colours as the row inside Quark's tooltip: green
+  while the hovered tool is the better one, the colour from the settings otherwise, for the whole line
+  and not only for the number.
 
 ## [1.0.1] - 2026-09-30
 

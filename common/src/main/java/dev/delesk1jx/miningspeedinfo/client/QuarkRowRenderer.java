@@ -24,9 +24,9 @@ import java.util.List;
  * The values of this mod as they are drawn inside Quark's attribute tooltip, right behind the values
  * Quark shows itself: an icon and the number next to it, on the same row.
  *
- * <p>The mixin only calls {@link #width} and {@link #render} and passes the position Quark has already
- * used up. That keeps every Minecraft call inside this class, where the build can map it for the
- * runtime, instead of inside the mixin.
+ * <p>The mixin only calls {@link #width} and {@link #renderBehindPanel} and passes the position Quark
+ * has already used up. That keeps every Minecraft call inside this class, where the build can map it
+ * for the runtime, instead of inside the mixin.
  *
  * <p>All images are ordinary resource pack textures, so they can be recoloured or replaced without
  * touching the mod.
@@ -61,8 +61,8 @@ public final class QuarkRowRenderer {
             ResourceLocation.fromNamespaceAndPath(MiningSpeedInfo.MOD_ID, "textures/gui/downgrade.png");
 
     /**
-     * Whether the mixin ever managed to draw. It only decides if the plain tooltip line is still
-     * needed, so a Quark update that moves the code around costs the value inside Quark's tooltip
+     * Whether the mixin ever managed to draw. It only decides if the plain tooltip lines are still
+     * needed, so a Quark update that moves the code around costs the values inside Quark's tooltip
      * instead of the game.
      */
     private static boolean active;
@@ -148,21 +148,22 @@ public final class QuarkRowRenderer {
 
         MiningSpeed speed = MiningSpeedInfo.provider.getMiningSpeed(stack, config.showForNonMiningTools);
         if (speed != null && speed.base() > 0.0F) {
-            int comparison = compareSpeed(speed, config);
-            values.add(new Value(SPEED_ICON, speedText(speed, config), color(comparison), comparison));
+            int comparison = Comparison.speed(speed, config);
+            ChatFormatting color = Comparison.color(comparison, config);
+            values.add(new Value(SPEED_ICON, speedText(speed, config, color), color, comparison));
         }
 
         int level = MiningSpeedInfo.provider.getHarvestLevel(stack);
         if (config.showHarvestLevel && level >= 0) {
-            int comparison = compareLevel(level, config);
+            int comparison = Comparison.harvestLevel(level, config);
+            ChatFormatting color = Comparison.color(comparison, config);
             values.add(new Value(LEVEL_ICON,
-                    Component.literal(SpeedFormatter.format(level, 0)).withStyle(color(comparison)),
-                    color(comparison), comparison));
+                    Component.literal(SpeedFormatter.format(level, 0)).withStyle(color), color, comparison));
         }
         return values;
     }
 
-    private static MutableComponent speedText(MiningSpeed speed, MiningSpeedConfig config) {
+    private static MutableComponent speedText(MiningSpeed speed, MiningSpeedConfig config, ChatFormatting color) {
         float shown = config.includeEfficiency ? speed.total() : speed.base();
         MutableComponent text = Component.literal(SpeedFormatter.format(shown, config.decimals));
         if (config.includeEfficiency && config.showEfficiencyBreakdown && speed.hasBonus()) {
@@ -170,50 +171,11 @@ public final class QuarkRowRenderer {
                     .append(Component.translatable("miningspeedinfo.tooltip.bonus",
                             SpeedFormatter.format(speed.bonus(), config.decimals)));
         }
-        return text.withStyle(config.colorFormatting());
+        return text.withStyle(color);
     }
 
     private static int advance(Font font, Value value) {
         return TEXT_OFFSET + font.width(value.text()) + GAP;
-    }
-
-    /** Green when the hovered tool is the better one, the colour from the settings otherwise. */
-    private static ChatFormatting color(int comparison) {
-        return comparison > 0 ? ChatFormatting.GREEN : MiningSpeedInfo.config.colorFormatting();
-    }
-
-    /** @return {@code 1} when faster than the tool in the hand, {@code -1} when slower, {@code 0} otherwise */
-    private static int compareSpeed(MiningSpeed speed, MiningSpeedConfig config) {
-        ItemStack held = heldStack(config);
-        if (held == null) {
-            return 0;
-        }
-        MiningSpeed other = MiningSpeedInfo.provider.getMiningSpeed(held, config.showForNonMiningTools);
-        if (other == null || other.base() <= 0.0F) {
-            return 0;
-        }
-        return Float.compare(shown(speed, config), shown(other, config));
-    }
-
-    private static int compareLevel(int level, MiningSpeedConfig config) {
-        ItemStack held = heldStack(config);
-        if (held == null) {
-            return 0;
-        }
-        int other = MiningSpeedInfo.provider.getHarvestLevel(held);
-        return other < 0 ? 0 : Integer.compare(level, other);
-    }
-
-    private static float shown(MiningSpeed speed, MiningSpeedConfig config) {
-        return config.includeEfficiency ? speed.total() : speed.base();
-    }
-
-    private static ItemStack heldStack(MiningSpeedConfig config) {
-        if (!config.quarkComparison || Minecraft.getInstance().player == null) {
-            return null;
-        }
-        ItemStack held = Minecraft.getInstance().player.getMainHandItem();
-        return held.isEmpty() ? null : held;
     }
 
     private static int tick() {
