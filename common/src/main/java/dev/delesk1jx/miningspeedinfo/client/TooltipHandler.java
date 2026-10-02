@@ -4,6 +4,7 @@ import dev.delesk1jx.miningspeedinfo.MiningSpeed;
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
 import dev.delesk1jx.miningspeedinfo.config.MiningSpeedConfig;
 import dev.delesk1jx.miningspeedinfo.text.SpeedFormatter;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -37,16 +38,19 @@ public final class TooltipHandler {
             return;
         }
 
-        // Quark draws the value inside its own attribute panel, so a second line would only repeat it.
+        // Quark draws the values inside its own attribute panel, so a second line would only repeat it.
         // Sneaking still shows the plain line, same as with the rest of the tooltip.
         if (config.quarkTooltip && !shift && QuarkIntegration.drawsValue()) {
             return;
         }
 
+        ChatFormatting color = Comparison.color(Comparison.speed(speed, config), config);
+        add(lines, stack, buildSpeedLine(speed, config, color));
+
         int level = config.showHarvestLevel ? MiningSpeedInfo.provider.getHarvestLevel(stack) : -1;
-        add(lines, stack, buildSpeedLine(speed, config));
         if (level >= 0) {
-            add(lines, stack, buildLevelLine(level, config));
+            add(lines, stack, buildLevelLine(level, config,
+                    Comparison.color(Comparison.harvestLevel(level, config), config)));
         }
     }
 
@@ -59,24 +63,17 @@ public final class TooltipHandler {
      * part of the translation, because a translation gets its arguments glued into the text and a
      * leading space there would be lost.
      */
-    public static Component buildSpeedLine(MiningSpeed speed, MiningSpeedConfig config) {
-        Component value = buildValue(speed, config.colorFormatting());
-        return Component.literal(" ")
-                .append(Component.translatable("miningspeedinfo.tooltip.mining_speed", value))
-                .withStyle(config.colorFormatting());
+    public static Component buildSpeedLine(MiningSpeed speed, MiningSpeedConfig config, ChatFormatting color) {
+        return line("miningspeedinfo.tooltip.mining_speed", buildValue(speed, config, color), config, color);
     }
 
     /** Same indent, saying which blocks the tool can break. */
-    public static Component buildLevelLine(int level, MiningSpeedConfig config) {
-        return Component.literal(" ")
-                .append(Component.translatable("miningspeedinfo.tooltip.harvest_level",
-                        SpeedFormatter.format(level, 0)))
-                .withStyle(config.colorFormatting());
+    public static Component buildLevelLine(int level, MiningSpeedConfig config, ChatFormatting color) {
+        return line("miningspeedinfo.tooltip.harvest_level", SpeedFormatter.format(level, 0), config, color);
     }
 
     /** "6", "6 (+26)", "6.5", ... depending on the settings. */
-    public static MutableComponent buildValue(MiningSpeed speed, net.minecraft.ChatFormatting color) {
-        MiningSpeedConfig config = MiningSpeedInfo.config;
+    public static MutableComponent buildValue(MiningSpeed speed, MiningSpeedConfig config, ChatFormatting color) {
         float shown = config.includeEfficiency ? speed.total() : speed.base();
 
         MutableComponent value = Component.literal(SpeedFormatter.format(shown, config.decimals));
@@ -86,6 +83,12 @@ public final class TooltipHandler {
                             SpeedFormatter.format(speed.bonus(), config.decimals)));
         }
         return value.withStyle(color);
+    }
+
+    private static Component line(String key, Object argument, MiningSpeedConfig config, ChatFormatting color) {
+        return Component.literal(" ")
+                .append(Component.translatable(key, argument))
+                .withStyle(color);
     }
 
     /**

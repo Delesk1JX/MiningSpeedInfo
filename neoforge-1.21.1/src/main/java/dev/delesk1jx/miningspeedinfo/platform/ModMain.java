@@ -1,7 +1,7 @@
 package dev.delesk1jx.miningspeedinfo.platform;
 
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
-import dev.delesk1jx.miningspeedinfo.mixin.MixinRegistration;
+import dev.delesk1jx.miningspeedinfo.MixinRegistration;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
