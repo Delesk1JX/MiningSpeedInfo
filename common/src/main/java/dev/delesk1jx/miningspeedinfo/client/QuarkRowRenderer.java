@@ -10,6 +10,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -100,6 +101,12 @@ public final class QuarkRowRenderer {
      */
     public static void renderBehindPanel(ItemStack stack, Font font, int totalWidth, int tooltipX, int tooltipY,
                                           GuiGraphics graphics) {
+        // Quark draws nothing at all while sneak is held, and neither should the values then. That is
+        // also where the mod switches to the plain tooltip lines with the full names.
+        if (Screen.hasShiftDown()) {
+            return;
+        }
+
         List<Value> values = values(stack);
         if (values.isEmpty()) {
             return;

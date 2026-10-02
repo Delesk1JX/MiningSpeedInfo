@@ -14,13 +14,20 @@ All notable changes to this project are documented here. The format follows
 
 ### Changed
 
-- Inside Quark's attribute tooltip the value is now drawn like the ones Quark shows itself: an icon and
-  the number, on the same row behind attack damage and attack speed, instead of a row of its own with
-  the name of the stat in front of it.
-- The number is white by default, like the values Quark draws, and turns green only while the hovered
+- Inside Quark's attribute tooltip the values are now drawn like the ones Quark shows itself: an icon
+  and the number, on the same row behind attack damage and attack speed, instead of a row of its own
+  with the name of the stat in front of it. Holding sneak shows the plain lines with the full names
+  instead, `Mining Speed: 8` and `Harvest Level: 3`, the same way the rest of the tooltip works.
+- The numbers are white by default, like the values Quark draws, and turn green only while the hovered
   tool really is the faster one. The arrows Quark uses are unchanged.
 - The plain tooltip lines now sit in front of the item id and the NBT count that the game adds with
   the advanced tooltips (F3+H), so they stay next to the other attributes.
+
+### Fixed
+
+- The mixin config is announced to Mixin while the mod is loading. Forge reads it from nowhere in
+  1.20.1, so the values inside Quark's tooltip never showed up and the plain lines were drawn all the
+  time instead.
 
 ## [1.0.1] - 2026-09-30
 

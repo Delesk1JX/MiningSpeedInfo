@@ -49,9 +49,6 @@ minecraft {
 
         client {
             property 'forge.logging.console.level', 'info'
-            // A development run does not go through the mod metadata, so the mixin config that Forge
-            // normally reads from mods.toml has to be passed on the command line instead.
-            args '--mixin.config', "${mod_id}.mixins.json"
         }
 
         server {
