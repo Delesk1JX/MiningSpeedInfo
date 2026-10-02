@@ -1,6 +1,7 @@
 package dev.delesk1jx.miningspeedinfo.platform;
 
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
+import dev.delesk1jx.miningspeedinfo.mixin.MixinRegistration;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -23,6 +24,9 @@ public final class ModMain {
         if (FMLEnvironment.dist != Dist.CLIENT) {
             return;
         }
+
+        // Puts the values inside Quark's attribute tooltip, the mixin steps aside without Quark.
+        MixinRegistration.register(MiningSpeedInfo.MOD_ID + ".mixins.json");
 
         MiningSpeedInfo.bootstrap(FMLPaths.CONFIGDIR.get(), new VanillaMiningSpeedProvider());
         ClientEvents.register(modBus, NeoForge.EVENT_BUS);
