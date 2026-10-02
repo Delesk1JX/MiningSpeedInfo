@@ -2,12 +2,17 @@ package dev.delesk1jx.miningspeedinfo.platform;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.delesk1jx.miningspeedinfo.MiningSpeedInfo;
+import dev.delesk1jx.miningspeedinfo.client.QuarkIntegration;
+import dev.delesk1jx.miningspeedinfo.client.QuarkRowRenderer;
 import dev.delesk1jx.miningspeedinfo.client.TooltipHandler;
 import dev.delesk1jx.miningspeedinfo.config.ConfigScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
@@ -27,6 +32,8 @@ public final class ClientEvents {
     /** Called from the mod constructor. */
     public static void register(IEventBus modBus, IEventBus gameBus) {
         modBus.addListener(ClientEvents::onRegisterKeyMappings);
+        // Runs last on purpose, so it wins over the registration Quark does for its own panel.
+        modBus.addListener(EventPriority.LOWEST, ClientEvents::onRegisterTooltipComponentFactories);
         gameBus.addListener(ClientEvents::onClientTick);
         gameBus.addListener(ClientEvents::onItemTooltip);
     }
@@ -41,7 +48,20 @@ public final class ClientEvents {
         event.register(openConfigKey);
     }
 
+    private static void onRegisterTooltipComponentFactories(RegisterClientTooltipComponentFactoriesEvent event) {
+        Class<?> panel = QuarkIntegration.panelClass();
+        if (panel != null) {
+            register(event, panel.asSubclass(TooltipComponent.class));
+        }
+    }
+
+    private static <T extends TooltipComponent> void register(RegisterClientTooltipComponentFactoriesEvent event,
+                                                                Class<T> panel) {
+        event.register(panel, QuarkIntegration::wrapPanel);
+    }
+
     private static void onClientTick(ClientTickEvent.Post event) {
+        QuarkRowRenderer.watchdog();
         while (openConfigKey != null && openConfigKey.consumeClick()) {
             Minecraft.getInstance().setScreen(new ConfigScreen(Minecraft.getInstance().screen));
         }
