@@ -56,6 +56,7 @@ public final class QuarkIntegration {
 
     /** Turns one of Quark's panels into one that carries the mining speed as well. */
     public static <T extends TooltipComponent> ClientTooltipComponent wrapPanel(T component) {
+        lookUp();
         if (!(component instanceof ClientTooltipComponent panel)) {
             return (ClientTooltipComponent) component;
         }

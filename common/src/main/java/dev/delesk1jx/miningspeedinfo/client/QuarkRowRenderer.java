@@ -114,15 +114,15 @@ public final class QuarkRowRenderer {
      * Draws the values directly behind the ones Quark has already drawn.
      *
      * <p>Quark keeps the running x in a local variable while it renders, which cannot be read from
-     * outside without hooking into the code. It does publish the width of the whole panel instead, and
-     * the position where its last value ended is exactly the tooltip x plus that width plus the gap
-     * Quark would leave, so the values can be placed without touching any of Quark's variables.
+     * outside without hooking into the code. It does publish the width of the panel instead, and the
+     * position where its last value ended is exactly the tooltip x plus that width plus the gap Quark
+     * would leave, so the values can be placed without touching any of Quark's variables.
      *
-     * @param totalWidth the width the panel reports, which already includes the values of this mod
-     * @param tooltipX   the x Quark renders its panel at
-     * @param tooltipY   the y Quark renders its panel at
+     * @param panelWidth the width Quark's own panel reports, without the values of this mod
+     * @param tooltipX    the x Quark renders its panel at
+     * @param tooltipY    the y Quark renders its panel at
      */
-    public static void renderBehindPanel(ItemStack stack, Font font, int totalWidth, int tooltipX, int tooltipY,
+    public static void renderBehindPanel(ItemStack stack, Font font, int panelWidth, int tooltipX, int tooltipY,
                                           GuiGraphics graphics) {
         // Quark draws nothing at all while sneak is held, and neither should the values then. That is
         // also where the mod switches to the plain tooltip lines with the full names.
@@ -140,7 +140,7 @@ public final class QuarkRowRenderer {
         }
         active = true;
 
-        int x = tooltipX + totalWidth - width(stack, font) + GAP;
+        int x = tooltipX + panelWidth + GAP;
         int y = tooltipY - ROW_OFFSET;
 
         PoseStack pose = graphics.pose();
