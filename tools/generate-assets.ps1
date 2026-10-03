@@ -16,15 +16,15 @@ New-Item -ItemType Directory -Force -Path $gui | Out-Null
 
 # ---------------------------------------------------------------- pixel art --
 
-# . transparent, K black outline, G gold head, W highlight, H handle
+# . transparent, K black outline, G gold head, H handle
 $pickaxe = @(
-    '.KKKKKWWW',
+    '.KKKKK...',
     'KKGGGGK..',
-    'KGGKKKWWW',
+    'KGGKKK...',
     'KGKHK....',
-    'KGKKHKWWW',
+    'KGKKHK...',
     'KGK.KHK..',
-    '.K...KHKW',
+    '.K...KHK.',
     '......KHK',
     '.......KK'
 )
@@ -99,7 +99,6 @@ function Save-Png {
 $pickaxeColors = @{
     K = [System.Drawing.Color]::FromArgb(255, 0, 0, 0)
     G = [System.Drawing.Color]::FromArgb(255, 233, 177, 21)
-    W = [System.Drawing.Color]::FromArgb(255, 215, 217, 234)
     H = [System.Drawing.Color]::FromArgb(255, 137, 103, 39)
 }
 Save-Png (New-PixelImage -Rows $pickaxe -Width 9 -Height 9 -Colors $pickaxeColors) (Join-Path $gui 'mining_speed.png')
