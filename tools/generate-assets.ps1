@@ -16,16 +16,16 @@ New-Item -ItemType Directory -Force -Path $gui | Out-Null
 
 # ---------------------------------------------------------------- pixel art --
 
-# . transparent, S steel, H handle, # arrow
+# . transparent, S steel, H handle, A/B gem
 $pickaxe = @(
-    '.SSSSSSS.',
-    'SS.....SS',
-    'S.......S',
-    '...HH....',
-    '..HH.....',
-    '.HH......',
-    'HH.......',
-    'H........',
+    '..SSSSSS.',
+    '.SS.HH.SS',
+    '.S..HH..S',
+    '....HH...',
+    '....HH...',
+    '....HH...',
+    '....HH...',
+    '....HH...',
     '.........'
 )
 
@@ -84,6 +84,24 @@ function Save-Png {
 
 $pickaxeColors = @{ 'S' = $steel; 'H' = $wood }
 Save-Png (New-PixelImage -Rows $pickaxe -Width 9 -Height 9 -Colors $pickaxeColors) (Join-Path $gui 'mining_speed.png')
+
+# A gem, which is what the tier of a tool comes down to in the end.
+$gem = @(
+    '.........',
+    '...AAB...',
+    '..AABBB..',
+    '.AABBBAA.',
+    '..BBBBA..',
+    '...BBA...',
+    '....B....',
+    '.........',
+    '.........'
+)
+$gemColors = @{
+    A = [System.Drawing.Color]::FromArgb(255, 173, 240, 240)
+    B = [System.Drawing.Color]::FromArgb(255, 49, 199, 199)
+}
+Save-Png (New-PixelImage -Rows $gem -Width 9 -Height 9 -Colors $gemColors) (Join-Path $gui 'harvest_level.png')
 
 Save-Png (New-PixelImage -Rows $arrowUp -Width 13 -Height 13 -Colors @{ '#' = $green }) (Join-Path $gui 'upgrade.png')
 
