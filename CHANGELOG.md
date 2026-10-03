@@ -18,9 +18,10 @@ All notable changes to this project are documented here. The format follows
   and the number, on the same row behind attack damage and attack speed, instead of a row of its own
   with the name of the stat in front of it. Holding sneak shows the plain lines with the full names
   instead, `Mining Speed: 8` and `Harvest Level: 3`, the same way the rest of the tooltip works.
-- The numbers keep the colour from the settings, white by default, and only turn red while the hovered
-  tool really is the worse one than the one in the hand. That applies to the row inside Quark's panel
-  and to the plain tooltip lines alike.
+- The numbers use the same three colours Quark uses for its own values: green while the hovered tool
+  is the better one, red while it is the worse one, and the colour from the settings, white by default,
+  when both are the same. That applies to the row inside Quark's panel and to the plain tooltip lines
+  alike.
 - The down arrow was mirrored the wrong way and ended up below the value instead of above it. Both
   arrows are now the images Quark uses and sit in the same spot, at the top right of the icon.
 - The plain tooltip lines now sit in front of the item id and the NBT count that the game adds with
