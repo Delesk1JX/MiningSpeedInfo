@@ -29,13 +29,14 @@ $pickaxe = @(
     '.........'
 )
 
-# A small chevron in the corner of a 13x13 image, the same place Quark puts its own arrows, so that the
-# icon of the row next to it stays readable. Quark draws it at (x - 2, y - 2).
+# The comparison arrows, drawn exactly where Quark draws its own: a 13x13 image whose chevron sits in
+# the top right corner, placed at (x - 2, y - 2) of the value it belongs to. The up arrow is one row
+# higher than the down arrow, the same way Quark has it, and both are two shades so the shape reads.
 $arrowUp = @(
     '.............',
-    '..........#..',
-    '.........###.',
-    '.........#.#.',
+    '..........G..',
+    '.........GDG.',
+    '.........D.D.',
     '.............',
     '.............',
     '.............',
@@ -47,13 +48,28 @@ $arrowUp = @(
     '.............'
 )
 
+$arrowDown = @(
+    '.............',
+    '.............',
+    '.........R.R.',
+    '.........DRD.',
+    '..........D..',
+    '.............',
+    '.............',
+    '.............',
+    '.............',
+    '.............',
+    '.............',
+    '.............',
+    '.............'
+)
+
 $steel = [System.Drawing.Color]::FromArgb(255, 199, 199, 199)
-$steelDark = [System.Drawing.Color]::FromArgb(255, 138, 138, 138)
 $wood = [System.Drawing.Color]::FromArgb(255, 141, 94, 49)
-$green = [System.Drawing.Color]::FromArgb(255, 85, 255, 85)
-$greenDark = [System.Drawing.Color]::FromArgb(255, 55, 190, 55)
-$red = [System.Drawing.Color]::FromArgb(255, 255, 85, 85)
-$redDark = [System.Drawing.Color]::FromArgb(255, 190, 55, 55)
+$green = [System.Drawing.Color]::FromArgb(255, 0, 255, 38)
+$greenDark = [System.Drawing.Color]::FromArgb(255, 0, 200, 30)
+$red = [System.Drawing.Color]::FromArgb(255, 255, 0, 94)
+$redDark = [System.Drawing.Color]::FromArgb(255, 200, 0, 33)
 
 function New-PixelImage {
     param(
@@ -103,10 +119,9 @@ $gemColors = @{
 }
 Save-Png (New-PixelImage -Rows $gem -Width 9 -Height 9 -Colors $gemColors) (Join-Path $gui 'harvest_level.png')
 
-Save-Png (New-PixelImage -Rows $arrowUp -Width 13 -Height 13 -Colors @{ '#' = $green }) (Join-Path $gui 'upgrade.png')
+Save-Png (New-PixelImage -Rows $arrowUp -Width 13 -Height 13 -Colors @{ 'G' = $green; 'D' = $greenDark }) (Join-Path $gui 'upgrade.png')
 
-$arrowDown = [string[]]($arrowUp[($arrowUp.Length - 1)..0])
-Save-Png (New-PixelImage -Rows $arrowDown -Width 13 -Height 13 -Colors @{ '#' = $red }) (Join-Path $gui 'downgrade.png')
+Save-Png (New-PixelImage -Rows $arrowDown -Width 13 -Height 13 -Colors @{ 'R' = $red; 'D' = $redDark }) (Join-Path $gui 'downgrade.png')
 
 # --------------------------------------------------------------- mod icon --
 

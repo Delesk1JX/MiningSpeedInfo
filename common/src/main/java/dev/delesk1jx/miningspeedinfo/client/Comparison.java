@@ -49,9 +49,16 @@ final class Comparison {
         return other < 0 ? SAME : Integer.compare(level, other);
     }
 
-    /** Green while the hovered tool really is the better one, the colour from the settings otherwise. */
+    /**
+     * The colours Quark uses for its own comparisons: green while the hovered tool is the better one,
+     * red while it is the worse one, and the colour from the settings when there is nothing to compare.
+     */
     static ChatFormatting color(int comparison, MiningSpeedConfig config) {
-        return comparison == BETTER ? ChatFormatting.GREEN : config.colorFormatting();
+        return switch (comparison) {
+            case BETTER -> ChatFormatting.GREEN;
+            case WORSE -> ChatFormatting.RED;
+            default -> config.colorFormatting();
+        };
     }
 
     private static float shown(MiningSpeed speed, MiningSpeedConfig config) {
