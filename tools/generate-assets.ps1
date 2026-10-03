@@ -16,17 +16,17 @@ New-Item -ItemType Directory -Force -Path $gui | Out-Null
 
 # ---------------------------------------------------------------- pixel art --
 
-# . transparent, S steel, H handle, A/B gem
+# . transparent, K black outline, G gold head, W highlight, H handle
 $pickaxe = @(
-    '..SSSSSS.',
-    '.SS.HH.SS',
-    '.S..HH..S',
-    '....HH...',
-    '....HH...',
-    '....HH...',
-    '....HH...',
-    '....HH...',
-    '.........'
+    '.KKKKKWWW',
+    'KKGGGGK..',
+    'KGGKKKWWW',
+    'KGKHK....',
+    'KGKKHKWWW',
+    'KGK.KHK..',
+    '.K...KHKW',
+    '......KHK',
+    '.......KK'
 )
 
 # The comparison arrows, drawn exactly where Quark draws its own: a 13x13 image whose chevron sits in
@@ -64,8 +64,6 @@ $arrowDown = @(
     '.............'
 )
 
-$steel = [System.Drawing.Color]::FromArgb(255, 199, 199, 199)
-$wood = [System.Drawing.Color]::FromArgb(255, 141, 94, 49)
 $green = [System.Drawing.Color]::FromArgb(255, 0, 255, 38)
 $greenDark = [System.Drawing.Color]::FromArgb(255, 0, 200, 30)
 $red = [System.Drawing.Color]::FromArgb(255, 255, 0, 94)
@@ -98,22 +96,28 @@ function Save-Png {
     Write-Host "wrote $Path"
 }
 
-$pickaxeColors = @{ 'S' = $steel; 'H' = $wood }
+$pickaxeColors = @{
+    K = [System.Drawing.Color]::FromArgb(255, 0, 0, 0)
+    G = [System.Drawing.Color]::FromArgb(255, 233, 177, 21)
+    W = [System.Drawing.Color]::FromArgb(255, 215, 217, 234)
+    H = [System.Drawing.Color]::FromArgb(255, 137, 103, 39)
+}
 Save-Png (New-PixelImage -Rows $pickaxe -Width 9 -Height 9 -Colors $pickaxeColors) (Join-Path $gui 'mining_speed.png')
 
 # A gem, which is what the tier of a tool comes down to in the end.
 $gem = @(
-    '.........',
-    '...AAB...',
-    '..AABBB..',
-    '.AABBBAA.',
-    '..BBBBA..',
-    '...BBA...',
-    '....B....',
-    '.........',
-    '.........'
+    '....K....',
+    '...KAK...',
+    '..KAABK..',
+    '.KAABBBK.',
+    'KAABBBAAK',
+    '.KBBBBAK.',
+    '..KBBAK..',
+    '...KBK...',
+    '....K....'
 )
 $gemColors = @{
+    K = [System.Drawing.Color]::FromArgb(255, 0, 0, 0)
     A = [System.Drawing.Color]::FromArgb(255, 173, 240, 240)
     B = [System.Drawing.Color]::FromArgb(255, 49, 199, 199)
 }
