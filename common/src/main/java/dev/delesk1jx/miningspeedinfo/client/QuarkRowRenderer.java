@@ -49,7 +49,6 @@ public final class QuarkRowRenderer {
     /** Where Quark puts the text of a value, counted from the x of its icon. */
     private static final int TEXT_OFFSET = 12;
 
-    private static final int ANIMATION_LENGTH = 20;
 
     private static final ResourceLocation SPEED_ICON =
             ResourceLocation.fromNamespaceAndPath(MiningSpeedInfo.MOD_ID, "textures/gui/mining_speed.png");
@@ -87,6 +86,8 @@ public final class QuarkRowRenderer {
      * why.
      */
     public static void watchdog() {
+        QuarkIntegration.tick();
+
         if (active || !QuarkIntegration.isActive()) {
             return;
         }
@@ -153,12 +154,11 @@ public final class QuarkRowRenderer {
             graphics.blit(value.icon(), x, y, 0.0F, 0.0F, IMAGE, IMAGE, IMAGE, IMAGE);
 
             if (value.comparison() != 0) {
-                int arrowY = y - 2;
-                if (tick() % ANIMATION_LENGTH < ANIMATION_LENGTH / 2) {
-                    arrowY++;
-                }
+                // Quark draws its arrow at the icon position moved two pixels up and left, and dips it
+                // one pixel for half of every 20 ticks. Asking it for that offset is what keeps the two
+                // arrows on the same pixel.
                 graphics.blit(value.comparison() > 0 ? UPGRADE : DOWNGRADE,
-                        x - 2, arrowY, 0.0F, 0.0F, ARROW, ARROW, ARROW, ARROW);
+                        x - 2, y - 2 + QuarkIntegration.arrowOffset(), 0.0F, 0.0F, ARROW, ARROW, ARROW, ARROW);
             }
 
             graphics.drawString(font, value.text(), x + TEXT_OFFSET, y + 1, -1);
@@ -203,10 +203,5 @@ public final class QuarkRowRenderer {
 
     private static int advance(Font font, Value value) {
         return TEXT_OFFSET + font.width(value.text()) + GAP;
-    }
-
-    private static int tick() {
-        Minecraft minecraft = Minecraft.getInstance();
-        return minecraft.gui == null ? 0 : minecraft.gui.getGuiTicks();
     }
 }
