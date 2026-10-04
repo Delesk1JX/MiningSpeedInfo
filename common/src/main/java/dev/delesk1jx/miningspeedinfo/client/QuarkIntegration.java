@@ -70,12 +70,23 @@ public final class QuarkIntegration {
         return panelClass;
     }
 
-    /** Turns one pixel down for half of every 20 ticks, exactly the way Quark moves its arrows. */
+        /** Turns one pixel down for half of every 20 ticks, exactly the way Quark moves its arrows. */
     public static int arrowOffset() {
         if (!flag("animateUpDownArrows", true)) {
             return 0;
         }
         return animationTime() % CYCLE < CYCLE_LOW ? 1 : 0;
+    }
+
+    /** Which clock the arrows run on, so that a mismatch can be told apart from a wrong offset. */
+    public static String clockSource() {
+        if (animationTicks != null) {
+            return "Quark's AnimationTickHolder";
+        }
+        if (legacyTotal != null) {
+            return "Quark's ticker";
+        }
+        return "own counter, Quark's clock was not found";
     }
 
     /** Counts the frames for the case where Quark cannot be asked. */

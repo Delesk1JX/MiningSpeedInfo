@@ -25,7 +25,10 @@ All notable changes to this project are documented here. The format follows
 - The down arrow was mirrored the wrong way and ended up below the value instead of above it. Both
   arrows are now the images Quark uses and sit in the same spot, at the top right of the icon.
 - The arrows now run on the very same clock as Quark's own, so both move together instead of drifting
-  apart, and they stand still when Quark's "animate up and down arrows" setting is off.
+  apart, and they stand still when Quark's "animate up and down arrows" setting is off. The log says
+  which clock the arrows ended up on.
+- The values no longer poke out of the tooltip. The gap between Quark's last number and ours was drawn
+  but never reserved, so the frame was eight pixels too narrow.
 - The plain tooltip lines now sit in front of the item id and the NBT count that the game adds with
   the advanced tooltips (F3+H), so they stay next to the other attributes.
 

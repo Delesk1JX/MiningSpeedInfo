@@ -32,9 +32,17 @@ public final class QuarkPanelWrapper implements TooltipComponent, ClientTooltipC
         return this.panel.getHeight();
     }
 
+    /**
+     * The panel plus the values behind it.
+     *
+     * <p>The gap counts here as well: Quark reports a width that already stops at the end of its last
+     * number, while its rendering would have continued a further {@link QuarkRowRenderer#GAP} pixels
+     * before the next value starts. Leaving that gap out is what made the last number poke out of the
+     * tooltip.
+     */
     @Override
     public int getWidth(Font font) {
-        return this.panel.getWidth(font) + QuarkRowRenderer.width(this.stack, font);
+        return this.panel.getWidth(font) + QuarkRowRenderer.GAP + QuarkRowRenderer.width(this.stack, font);
     }
 
     @Override
