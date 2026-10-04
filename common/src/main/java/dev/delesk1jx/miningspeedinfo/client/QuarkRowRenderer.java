@@ -69,6 +69,9 @@ public final class QuarkRowRenderer {
     /** Counts the ticks that passed without a single value being drawn. */
     private static int ticks = -1;
 
+    /** Whether the arrow clock was already written to the log. */
+    private static boolean loggedClock;
+
     private QuarkRowRenderer() {
     }
 
@@ -157,8 +160,13 @@ public final class QuarkRowRenderer {
                 // Quark draws its arrow at the icon position moved two pixels up and left, and dips it
                 // one pixel for half of every 20 ticks. Asking it for that offset is what keeps the two
                 // arrows on the same pixel.
+                int offset = QuarkIntegration.arrowOffset();
+                if (!loggedClock) {
+                    loggedClock = true;
+                    MiningSpeedInfo.LOGGER.info("The arrows run on {}", QuarkIntegration.clockSource());
+                }
                 graphics.blit(value.comparison() > 0 ? UPGRADE : DOWNGRADE,
-                        x - 2, y - 2 + QuarkIntegration.arrowOffset(), 0.0F, 0.0F, ARROW, ARROW, ARROW, ARROW);
+                        x - 2, y - 2 + offset, 0.0F, 0.0F, ARROW, ARROW, ARROW, ARROW);
             }
 
             graphics.drawString(font, value.text(), x + TEXT_OFFSET, y + 1, -1);
